@@ -5,25 +5,31 @@ export class Pizza extends Consumable {
   slicesEaten: number
   constructor(
     numberOfSlices: number,
-    name: string,
-    value: number,
-    weight: number,
-    spoiled = false
+    spoiled = false,
+    weight?: number,
+    value?: number,
+    name: string = 'pizza'
   ) {
     super({ name, spoiled, value, weight })
     this.numberOfSlices = numberOfSlices
     this.slicesEaten = 0
   }
-  use() {
-    if (!this.consumed && !this.spoiled) {
-      console.log(`You eat the ${this.name}.`)
-    } else if (this.consumed) {
-      console.log(`There is nothing left of the ${this.name} to consume`)
-    } else if (!this.consumed && this.spoiled) {
-      console.log(`You eat the ${this.name}. \n  You feel sick`)
+  public eat() {
+    if (this.slicesEaten < this.numberOfSlices) {
+      this.slicesEaten++
+
+      if (this.slicesEaten >= this.numberOfSlices) {
+        super.setConsumed(true)
+      }
+      console.log('you eat a slice of pizza')
+    } else {
+      console.log('')
     }
   }
 }
 
-// const pizza = new Pizza(12, 'pizza', 1000, 2.5)
+// const pizza = new Pizza(1, false, 1000, 2.5)
+// console.log(pizza)
+// pizza.eat()
+// pizza.eat()
 // console.log(pizza)

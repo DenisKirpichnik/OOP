@@ -13,6 +13,9 @@ export abstract class Consumable extends Item {
     this.spoiled = props.spoiled
     this.consumed = false
   }
+  setConsumed(isConsumed: boolean): void {
+    this.consumed = isConsumed
+  }
   use() {
     if (!this.consumed && !this.spoiled) {
       console.log(`You eat the ${this.name}.`)

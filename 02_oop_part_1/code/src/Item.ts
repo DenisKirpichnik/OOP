@@ -21,9 +21,6 @@ export abstract class Item implements Comparable<Item> {
     this.weight = props.weight
   }
 
-  // public compareTo(other: Item) => number {
-  // 	// your code goes here
-  // }
   compareTo(other: Item) {
     if (this.value < other.value) {
       return -1
@@ -42,26 +39,26 @@ export abstract class Item implements Comparable<Item> {
     }
   }
 
-  getId() {
+  getId(): void {
     console.log(this.id)
   }
-  getValue() {
+  getValue(): void {
     console.log(this.value)
   }
-  setValue(value: number) {
-    this.value = value
-  }
-  getWeight() {
+  getWeight(): void {
     console.log(this.weight)
   }
-  setWeight(weight: number) {
+  setValue(value: number): void {
+    this.value = value
+  }
+  setWeight(weight: number): void {
     this.weight = weight
   }
-  setName(newName: string) {
+  setName(newName: string): void {
     this.name = newName
   }
 
-  static reset() {
+  static reset(): void {
     id = 0
   }
 
