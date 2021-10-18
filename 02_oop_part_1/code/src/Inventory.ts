@@ -19,7 +19,7 @@ export class Inventory {
 
   sort(comparator?: ItemComparator): void {
     if (comparator) {
-      this.items = this.items.sort((a: Item, b: Item) => a.weight - b.weight)
+      this.items = this.items.sort(comparator.compare)
       return
     }
 
